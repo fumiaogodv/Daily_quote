@@ -1,0 +1,22 @@
+version: "3.9"
+
+services:
+  quotes:
+    image: quotes:dev        # 👈 明确给开发镜像命名
+    build: .
+    container_name: quotes_dev
+
+    ports:
+      - "5000:5000"
+
+    volumes:
+      # 🔥 代码实时同步（开发核心）
+      - .:/app
+
+      # 📦 数据持久化
+      - ./data:/app/data
+
+    environment:
+      - FLASK_ENV=development
+
+    restart: unless-stopped

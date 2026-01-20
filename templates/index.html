@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>每日语录4</title>
+    <style>
+        :root {
+            --bg-color: #f4f4f9;
+            --text-color: #333;
+        }
+        body {
+            font-family: 'PingFang SC', 'Microsoft YaHei', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .container {
+            max-width: 600px;
+            padding: 2rem;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+            text-align: center;
+        }
+        .quote-content {
+            font-size: 1.5rem;
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
+            font-style: italic;
+        }
+        .quote-id {
+            color: #999;
+            font-size: 0.8rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div id="quote" class="quote-content">加载中...</div>
+        <div id="id" class="quote-id">#--</div>
+    </div>
+
+    <script>
+        // 页面加载完成后自动请求后端接口
+        async function fetchQuote() {
+            try {
+                // 因为前端和后端同源（都在容器 5000 端口），可以直接写相对路径
+                const response = await fetch('/api/daily');
+                const data = await response.json();
+                
+                if (data.error) {
+                    document.getElementById('quote').innerText = data.error;
+                } else {
+                    document.getElementById('quote').innerText = data.content;
+                    document.getElementById('id').innerText = 'ID: ' + data.id;
+                }
+            } catch (err) {
+                document.getElementById('quote').innerText = "无法连接到服务器";
+            }
+        }
+
+        fetchQuote();
+    </script>
+</body>
+</html>
