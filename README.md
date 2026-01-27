@@ -5,7 +5,7 @@
 # 下载
 ## 第一种方法：
 ## python运行：
-### 下载requirements.txt需要的依赖文件
+### 下载requirements.txt里面是python需要的依赖文件
 ### 运行app.py
 ## 第二种方法：
 ## docker:
