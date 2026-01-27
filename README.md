@@ -1,3 +1,11 @@
+# 下载
+## python运行：
+### 下载requirements.txt需要的依赖文件
+### 运行app.py
+
+## docker:
+拉取：`docker pull 0424godv/quotes_prod:latest `
+创建docker-compose.yml文件，然后写入：
 docker-compose.yml
 ```
 version: "3.9"
@@ -14,10 +22,7 @@ services:
       - FLASK_ENV=production
     restart: unless-stopped
 ```
-# python运行：
-### 下载requirements.txt需要的依赖文件
-### 运行app.py
-
-# docker:
-拉取：`docker pull 0424godv/quotes_prod:latest `
 复制docker-compose.yml到本地然后`docker compose up -d`
+# 使用
+## 登录localhost:5000来访问主页面
+## 登录localhost:5000/admin来实现删除句子和添加句子
