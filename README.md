@@ -1,8 +1,9 @@
 # 下载
+## 第一种方法：
 ## python运行：
 ### 下载requirements.txt需要的依赖文件
 ### 运行app.py
-
+## 第二种方法：
 ## docker:
 拉取：`docker pull 0424godv/quotes_prod:latest `
 创建docker-compose.yml文件，然后写入：
