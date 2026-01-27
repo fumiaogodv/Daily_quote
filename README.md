@@ -1,3 +1,7 @@
+效果预览：
+<img width="916" height="332" alt="image" src="https://github.com/user-attachments/assets/b3a932f3-0370-4777-a715-9a4f8be1b27f" />
+<img width="2205" height="851" alt="image" src="https://github.com/user-attachments/assets/9b44a0f7-86d5-435d-9db8-30dd672e8930" />
+
 # 下载
 ## 第一种方法：
 ## python运行：
