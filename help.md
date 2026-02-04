@@ -1,6 +1,6 @@
 ## 域名/admin是添加或者删除句子的后台
 ## aaa是删除句子前的数据和.的脚本，bbb是删除句子间空行的脚本
-
+#执行的顺序
 
 按照顺序执行
 ```
@@ -17,7 +17,7 @@
 
 <--分割线---------------------------------------------------------------------------------------->
 
-
+# 修改了怎么做
 
 
 每次修改dev镜像不变（只要依赖不变），prod每次一个新的
@@ -146,4 +146,34 @@ RUN pip install -r requirements.txt
 
 ---
 
+### 当完成了一个修改后可以，先git push
+### 然后可以使用docker push vx
 
+
+# 如何推送到dockerhub
+ 第一步`docker build -t 0424godv/my-quote-app:v1 .`
+ 第二步`docker push 0424godv/my-quote-app:v1`
+
+
+
+```
+标准的发布工作流
+建议你后续每次更新时，执行以下三步：
+
+构建新版本（例如 v2）：
+
+Bash
+
+docker build -t 0424godv/quotes_prod:v2 .
+将 v2 标记为 latest：
+
+Bash
+
+docker tag 0424godv/quotes_prod:v2 0424godv/quotes_prod:latest
+一次性推送所有标签：
+
+Bash
+
+docker push 0424godv/quotes_prod:v2
+docker push 0424godv/quotes_prod:latest
+```

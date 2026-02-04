@@ -18,5 +18,8 @@ services:
 
     environment:
       - FLASK_ENV=development
+      - ADMIN_USER=myadmin       # 自定义账号
+      - ADMIN_PASS=mypassword123
+      - FLASK_SECRET_KEY=j8s9d8s7f987sdf98s7d9f87sd9f87s
 
     restart: unless-stopped

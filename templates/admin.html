@@ -4,20 +4,27 @@
     <meta charset="UTF-8">
     <title>语录管理后台</title>
     <style>
-        body { font-family: sans-serif; padding: 20px; }
-        textarea { width: 100%; height: 150px; }
-        .quote { margin: 6px 0; }
-        button { margin-left: 10px; }
+        body { font-family: sans-serif; padding: 20px; max-width: 800px; margin: 0 auto; }
+        textarea { width: 100%; height: 150px; padding: 10px; border-radius: 5px; border: 1px solid #ccc; box-sizing: border-box;}
+        .quote { margin: 10px 0; padding: 10px; background: #f9f9f9; border-bottom: 1px solid #eee; display: flex; justify-content: space-between; align-items: center; }
+        .header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;}
+        button { cursor: pointer; padding: 5px 10px;}
+        .btn-del { background: #ff4d4f; color: white; border: none; border-radius: 3px; }
+        .btn-add { background: #52c41a; color: white; border: none; padding: 8px 15px; font-size: 16px; border-radius: 4px;}
+        .btn-logout { background: #666; color: white; text-decoration: none; padding: 8px 15px; border-radius: 4px; font-size: 14px;}
     </style>
 </head>
 <body>
 
-<h1>📚 语录管理后台</h1>
+<div class="header">
+    <h1>📚 语录管理后台</h1>
+    <a href="/logout" class="btn-logout">退出登录</a>
+</div>
 
 <h2>➕ 批量添加语录（每行一条）</h2>
 <form method="post" action="/admin/add">
-    <textarea name="text" placeholder="每行一条语录"></textarea><br><br>
-    <button type="submit">批量添加</button>
+    <textarea name="text" placeholder="输入语录，每行一条..."></textarea><br><br>
+    <button type="submit" class="btn-add">批量添加</button>
 </form>
 
 <hr>
@@ -26,9 +33,9 @@
 
 {% for q in quotes %}
 <div class="quote">
-    <b>#{{ q.id }}</b> {{ q.content }}
-    <a href="/admin/delete/{{ q.id }}">
-        <button>删除</button>
+    <span><b>#{{ q.id }}</b> {{ q.content }}</span>
+    <a href="/admin/delete/{{ q.id }}" onclick="return confirm('确定删除吗？')">
+        <button class="btn-del">删除</button>
     </a>
 </div>
 {% endfor %}
