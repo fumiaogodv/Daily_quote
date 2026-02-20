@@ -4,8 +4,9 @@ from datetime import datetime, date
 import os
 import hashlib
 from functools import wraps  # 用于创建装饰器
-
+from flask_cors import CORS
 app = Flask(__name__)
+CORS(app)  # 这行代码会允许所有域名的跨域请求
 
 # --- 1. 配置部分 (修改) ---
 db_path = os.path.join(os.getcwd(), 'data', 'quotes.db')

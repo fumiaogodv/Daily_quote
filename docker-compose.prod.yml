@@ -1,9 +1,9 @@
-version: "3.9"
 
 services:
   quotes:
-    image: quotes:prod
-    container_name: quotes_prod
+    build: .
+    image: 0424godv/quotes:latest
+    container_name: quotes
 
     ports:
       - "5000:5000"
